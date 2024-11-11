@@ -53,6 +53,12 @@ export const TransactionColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "date",
     header: "Data",
+    cell: ({ row: { original: transaction } }) =>
+      new Date(transaction.date).toLocaleString("pt-BR", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }),
   },
   {
     accessorKey: "amount",
